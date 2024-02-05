@@ -13,16 +13,25 @@ console.log(intentos);
 
    if(numeroDeUsuario == numeroSecreto){
     asignarTextoElemento('p',`Acertaste el numero en ${intentos} ${(intentos === 1) ?'vez' : 'veces'}!`)
-   }else{
+   document.getElementById('reiniciar').removeAttribute('disabled');
+}else{
+    //El usuario no acertó
     if(numeroDeUsuario > numeroSecreto){
         asignarTextoElemento('p', 'El numero secreto es menor')
     }else{
         asignarTextoElemento('p', 'El numero secreto es mayor')
     }
     intentos++;
+    limpiarCaja();
    }
     return;
 }
+
+function limpiarCaja(){
+  document.querySelector('#valorUsuario').value = '';
+
+}
+
 
 function generarNumeroSecreto() {
   
